@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="container">
+        
+        <div class="title">
+            <h1><%= new Date().toDateString() %></h1>
+        </div>
+
+        <%- include("partials/todo.ejs") %>
+    
+    </div>
+
+    <script src="script.js"></script>
+    
+<%- include("partials/footer.ejs") %>

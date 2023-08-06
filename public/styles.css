@@ -1,0 +1,129 @@
+html {
+    box-sizing: border-box;
+    background-color: white;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: rgb(219, 94, 56);
+    --text-color: #333;
+}
+
+.header {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.buttons a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.buttons i {
+    color: var(--primary-color);
+}
+
+.today::after {
+    content: "Today";
+    padding: .5rem;
+    font-size: 1.2rem;
+}
+
+.work::after {
+    content: "Work";
+    padding: .5rem;
+    font-size: 1.2rem;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    margin: 5rem 0 3rem 0 ;
+    gap: 2.5rem;
+    width: 100%;
+}
+
+h1 {
+    background-color: var(--primary-color);
+    color: #333;
+    padding: .5rem 5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 4px 0 var(--primary-color), 0 5px 2px 0 var(--primary-color);
+}
+
+.second-title {
+    padding: .5rem 8.5rem;
+}
+
+.todolist {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: var(--text-color);
+    border-radius: 10px;
+    padding: .5rem;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(17, 17, 17, 0.2), 0 6px 20px 0 rgba(19, 18, 18, 0.19);
+}
+
+.list {
+    padding: .2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+ul li {
+    list-style: none;
+    border-bottom: 1px solid var(--text-color);
+    padding: .5rem;
+}
+
+
+
+button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 100%;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+button::after {
+    content: "+";
+    font-size: 2rem;
+}
+
+.add-item-to-list {
+    display: flex;
+    justify-content: center;
+}
+
+.add-item {
+    background: none;
+    border: white;
+    outline: white;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--primary-color);
+    text-align: center;
+}
+
+
+footer {
+    text-align: center;
+    color: var(--text-color);
+}
+
+footer span {
+    color: var(--primary-color);
+}
