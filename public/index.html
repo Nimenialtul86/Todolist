@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+
+        <div class="buttons">
+            <a href="./index.html" class="today">
+                <i class="fa-solid fa-calendar-check"></i>
+            </a>
+        </div>
+       
+        <div class="buttons">
+            <a href="./work.html" class="work"> 
+                <i class="fa-regular fa-file"></i>
+            </a>
+        </div>
+    
+    </div>
+
+    <div class="container">
+
+        <div class="title">
+            <h1><script> document.write(new Date().toDateString());</script>
+            </h1>
+        </div>
+
+        <div class="todolist">
+
+            <div class="add-item-to-list">
+                    <input class="add-item" type="text" placeholder="New Item">
+                    <button class="btn" onclick="addTask()"></button>
+            </div>
+        
+            <ul class="list">
+            </ul>
+            
+        </div>
+    </div>
+
+    <footer>
+        <h2> Copyright &copy;
+            <script> document.write(new Date().getFullYear()); </script>
+    </h2>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
