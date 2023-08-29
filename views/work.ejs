@@ -3,15 +3,31 @@
 <div class="container">
         
     <div class="title">
-        <h1 class="second-title">Work List</h1>
+        <h1 class="second-title">Today</h1>
     </div>
 
-    <%- include("partials/todo.ejs") %>
 
 
+    <div class="todolist">
+
+        <div class="add-item-to-list">
+            <form action="/work" method="post"><input name="newItem" class="add-item" type="text" placeholder="New Item">
+                <button class="btn" type="submit"></button></form>
+        </div>
+    
+            <ul class="list">
+                <% workItems.forEach(list => { %>
+                    <form action="/delete2" method="post">
+                    <div class="listItems">
+                        <input value="<%= list._id %>" name="delete" type="checkbox" onChange="this.form.submit()">
+                        <li><%= list.name %></li>
+                    </div>
+                </form>
+            <% }); %>
+            
+        </ul>
+        
+    </div>
 </div>
-
-<script src="script.js"></script>
-
     
 <%- include("partials/footer.ejs") %>

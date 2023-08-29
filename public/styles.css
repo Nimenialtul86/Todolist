@@ -6,7 +6,8 @@ html {
     padding: 0;
 }
 
-*::after {
+*::after,
+*::before {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -40,7 +41,7 @@ html {
 }
 
 .work::after {
-    content: "Work";
+    content: "To Do";
     padding: .5rem;
     font-size: 1.3rem;
 }
@@ -86,21 +87,10 @@ h1 {
 
 ul li {
     list-style: none;
-    border-bottom: 1px solid var(--text-color);
+    border-bottom: 1px solid var(--primary-color);
+    width: 100%;
     padding: .5rem;
-    position: relative;
     font-size: 1.2rem;
-}
-
-span {
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    font-size: 1.2rem;
-}
-
-.checked {
-    text-decoration: line-through;
 }
 
 button {
@@ -131,6 +121,9 @@ button::after {
     text-align: center;
 }
 
+.listItems {
+    display: flex;
+}
 
 footer {
     text-align: center;

@@ -1,11 +1,23 @@
 <div class="todolist">
 
     <div class="add-item-to-list">
-            <input class="add-item" type="text" placeholder="New Item">
-            <button class="btn" onclick="addTask()"></button>
+        <form action="/" method="post" class="item">
+            <input name="newItem" class="add-item" type="text" placeholder="New Item">
+            <button class="btn" type="submit" name="list"></button>
+        </form>
     </div>
 
     <ul class="list">
+        <% newItems.forEach(item => { %>
+            <form action="/delete" method="post">
+            <div class="listItems">
+                <input value="<%= item._id %>" name="delete" type="checkbox" onChange="this.form.submit()">
+                <li><%= item.name %></li>
+            </div>
+        </form>
+    <% }); %>
+        
+        
     </ul>
     
 </div>
