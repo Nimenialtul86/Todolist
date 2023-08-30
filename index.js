@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb+srv://voicu:Irefutabil1986@cluster0.ty95ttd.mongodb.net/todolistDB")
+mongoose.connect("mongodb://localhost:27017/todolistDB")
 
 // index
 
@@ -18,16 +18,6 @@ const itemsSchema = {
 
 const Item = mongoose.model("Item", itemsSchema);
 
-const item1 = new Item ({
-  name: "Welcome to your todolist"
-});
-
-const item2 = new Item ({
-  name: "Hit the + button to add a new item."
-});
-
-
-const defaultItems = [item1, item2];
 
 // end of index
 
@@ -35,62 +25,24 @@ const defaultItems = [item1, item2];
 //Work
 
 const listSchema = {
-  name: String,
-  items: [itemsSchema]
+  name: String
 };
 
 const List = mongoose.model("List", listSchema);
-
-const list1 = new List ({
-  name: "Add your task"
-});
-
-const list2 = new Item ({
-  name: "Hit the + button to add a new item."
-});
-
-const defaultList = [list1, list2];
 
 // End of work
 
 app.get("/", (req, res) => {
   Item.find({}).then(function(FoundItems){
-    
-    if(FoundItems.length === 0) {
-      Item.insertMany(defaultItems).then(function(err) {
-        if(err) {
-          console.log(err);
-        } else {
-          console.log("Succes")
-        }
-      });
-      res.redirect("/")
-    } else {
       res.render("index.ejs", {newItems: FoundItems});
-    }
-
-  });
-  
-});
+    })
+  })
 
   app.get("/work", (req, res) => {
-    List.find({}).then(function(FoundItems){
-    
-      if(FoundItems.length === 0) {
-        List.insertMany(defaultList).then(function(err) {
-          if(err) {
-            console.log(err);
-          } else {
-            console.log("Succes")
-          }
-        });
-        res.redirect("/work")
-      } else {
-        res.render("work.ejs", {workItems: FoundItems});
-      }
-  
-    });
-  });
+    List.find({}).then(function(FoundList){
+        res.render("work.ejs", {workItems: FoundList});
+      })
+    })
 
 
   app.post("/", (req, res) => {
@@ -98,7 +50,6 @@ app.get("/", (req, res) => {
     const items = new Item ({
       name: newItem
     })
-    defaultItems.push(items)
     items.save();
     res.redirect("/")
   });
@@ -108,7 +59,6 @@ app.get("/", (req, res) => {
     const item = new List ({
       name: newItem
     })
-    defaultList.push(item)
     item.save();
     res.redirect("/work")
   });
